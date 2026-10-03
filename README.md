@@ -324,10 +324,29 @@ The workflow demonstrates:
 
 GitHub Actions is used to automate project validation.
 
-The CI workflow performs automated checks when changes are pushed to the repository.
+The CI workflow is triggered by:
 
-Planned CI jobs include:
+- Pushes to `main`
+- Pushes to `develop`
+- Pull requests targeting `main`
+- Pull requests targeting `develop`
 
-- Install dependencies
-- Run Python validation/tests
-- Validate the Docker build
+The workflow contains two jobs:
+
+1. **Test**
+   - Sets up Python 3.11
+   - Installs project dependencies
+   - Runs the automated test suite using pytest
+
+2. **Docker Build**
+   - Builds the Docker image
+   - Validates that the deployment image can be built successfully
+
+### CI Results
+
+The workflow was tested on both branches:
+
+- `main` — CI passed successfully
+- `develop` — CI passed successfully
+
+The workflow also included a debugging cycle where an initial CI run failed because `pytest` was missing and the Docker build expected the ignored `models/` directory. Both issues were fixed and the workflow was successfully re-run.
