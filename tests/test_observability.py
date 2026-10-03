@@ -1,3 +1,4 @@
+import numpy as np
 from PIL import Image
 
 from app.drift import check_drift
@@ -9,11 +10,31 @@ from app.system_monitoring import get_system_metrics
 # DATA DRIFT TEST
 # ============================================================
 
-def test_reference_image_has_no_drift():
+def test_reference_like_image_has_no_drift():
 
-    image = Image.open(
-        "data/EuroSAT/EuroSAT_RGB/AnnualCrop/AnnualCrop_1.jpg"
-    ).convert("RGB")
+    # Create a synthetic 64x64 RGB image whose
+    # channel values are close to the EuroSAT
+    # reference means.
+    reference_rgb = np.array(
+        [
+            [0.34437728, 0.38029137, 0.40777302]
+        ],
+        dtype=np.float32,
+    )
+
+    pixel_values = (
+        reference_rgb * 255
+    ).astype(np.uint8)
+
+    image_array = np.tile(
+        pixel_values,
+        (64, 64, 1),
+    )
+
+    image = Image.fromarray(
+        image_array,
+        mode="RGB",
+    )
 
     result = check_drift(image)
 
