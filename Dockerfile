@@ -8,7 +8,7 @@ RUN pip install --no-cache-dir --default-timeout=300 -r requirements-docker.txt
 
 COPY app ./app
 COPY training ./training
-COPY models ./models
+
 
 WORKDIR /app/app
 
