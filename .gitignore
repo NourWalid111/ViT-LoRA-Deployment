@@ -11,3 +11,5 @@ models/
 
 .env
 .vscode/
+# Runtime observability logs
+monitoring/*.jsonl
