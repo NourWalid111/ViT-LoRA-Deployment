@@ -298,7 +298,7 @@ Save the file.
 
 Then **don't rebuild Docker yet**. The next thing we'll do is a quick `git status`/project cleanup check so we don't accidentally commit the 27,000-image dataset or your `.venv`.
 
-## Assignment 15 — Git and CI/CD
+## Assignment 15 — Git Workflow and Automation
 
 This assignment extends the ViT deployment project with a Git-based development workflow and continuous integration.
 
