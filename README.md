@@ -350,3 +350,28 @@ The workflow was tested on both branches:
 - `develop` — CI passed successfully
 
 The workflow also included a debugging cycle where an initial CI run failed because `pytest` was missing and the Docker build expected the ignored `models/` directory. Both issues were fixed and the workflow was successfully re-run.
+
+## Assignment 16 — AI Observability
+
+This assignment adds AI observability to the EuroSAT ViT + LoRA deployment.
+
+The monitoring system covers three main areas:
+
+### 1. Model Performance Monitoring
+
+The API records prediction information for every inference request.
+
+Tracked metrics include:
+
+- Total predictions
+- Predictions with true labels
+- Correct predictions
+- Accuracy when labels are available
+- Average prediction confidence
+- Average inference latency
+- Prediction-class distribution
+
+Prediction records are stored locally as JSON Lines:
+
+```text
+monitoring/predictions.jsonl
