@@ -297,3 +297,37 @@ Your README's numbers are based on the results we actually obtained during the p
 Save the file.
 
 Then **don't rebuild Docker yet**. The next thing we'll do is a quick `git status`/project cleanup check so we don't accidentally commit the 27,000-image dataset or your `.venv`.
+
+## Assignment 15 — Git and CI/CD
+
+This assignment extends the ViT deployment project with a Git-based development workflow and continuous integration.
+
+### Git Workflow
+
+The project uses two branches:
+
+- `main` — stable version
+- `develop` — development version
+
+The workflow demonstrates:
+
+- `git status`
+- `git add`
+- `git commit`
+- `git push`
+- `git pull`
+- `git diff`
+- `git merge`
+- Merge conflict resolution
+
+### CI/CD
+
+GitHub Actions is used to automate project validation.
+
+The CI workflow performs automated checks when changes are pushed to the repository.
+
+Planned CI jobs include:
+
+- Install dependencies
+- Run Python validation/tests
+- Validate the Docker build
