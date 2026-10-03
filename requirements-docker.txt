@@ -1,0 +1,15 @@
+--index-url https://download.pytorch.org/whl/cpu
+
+torch
+torchvision
+
+--extra-index-url https://pypi.org/simple
+
+transformers
+accelerate
+numpy
+Pillow
+fastapi
+uvicorn
+python-multipart
+requests
